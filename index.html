@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Lovers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+
+        /* Header */
+        header {
+            background: #000;
+            border-bottom: 1px solid #222;
+            padding: 32px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-bottom: 1px solid #222;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            text-align: left;
+        }
+
+        .hero h2 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 100px;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            font-size: 15px;
+            color: #888;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 12px;
+            scrollbar-width: thin;
+            scrollbar-color: #333 #1a1a1a;
+        }
+
+        .carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carousel::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .carousel::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+
+        .carousel-item {
+            flex: 0 0 calc(33.333% - 14px);
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 40px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-item:hover {
+            border-color: #555;
+            background: #222;
+        }
+
+        .carousel-item:hover::before {
+            opacity: 0.3;
+        }
+
+        .carousel-item-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .carousel-item-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .carousel-item-subtitle {
+            font-size: 14px;
+            color: #888;
+            flex-grow: 1;
+        }
+
+        .carousel-item-status {
+            font-size: 12px;
+            color: #666;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #333;
+        }
+
+        /* Controls */
+        .carousel-controls {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+            justify-content: flex-end;
+        }
+
+        .carousel-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #333;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            font-size: 16px;
+        }
+
+        .carousel-btn:hover {
+            border-color: #555;
+            background: #222;
+        }
+
+        .carousel-btn:active {
+            background: #333;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .info-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .info-item p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .team-member {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            border-color: #555;
+            background: #222;
+        }
+
+        .team-role {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .team-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            border-top: 1px solid #222;
+            padding: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero {
+                padding: 60px 24px;
+            }
+
+            .container {
+                padding: 50px 24px;
+            }
+
+            header {
+                padding: 24px;
+            }
+
+            .carousel-item {
+                flex: 0 0 calc(50% - 10px);
+                min-height: 240px;
+            }
+
+            .section-header h3 {
+                font-size: 24px;
+            }
+
+            .team-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .carousel-item {
+                flex: 0 0 100%;
+                min-height: 200px;
+            }
+
+            .section-header h3 {
+                font-size: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .team-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            header h1 {
+                font-size: 16px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Coffee Lovers</h1>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Coffee Lovers</h2>
+            <p>A project built with wizterm</p>
+            <p style="font-size: 14px; color: #666; margin-top: 24px;">Reports and presentations coming soon</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Reports Section -->
+        <section>
+            <div class="section-header">
+                <h3>Reports</h3>
+                <p>Project analysis and findings</p>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel" id="reportsCarousel">
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Report</div>
+                            <div class="carousel-item-title">Report 01</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Report</div>
+                            <div class="carousel-item-title">Report 02</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Report</div>
+                            <div class="carousel-item-title">Report 03</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Report</div>
+                            <div class="carousel-item-title">Report 04</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="scrollCarousel('reportsCarousel', -1)">&larr;</button>
+                <button class="carousel-btn" onclick="scrollCarousel('reportsCarousel', 1)">&rarr;</button>
+            </div>
+        </section>
+
+        <!-- Presentations Section -->
+        <section>
+            <div class="section-header">
+                <h3>Presentations</h3>
+                <p>Video and visual presentations</p>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel" id="videosCarousel">
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Presentation</div>
+                            <div class="carousel-item-title">Video 01</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Presentation</div>
+                            <div class="carousel-item-title">Video 02</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Presentation</div>
+                            <div class="carousel-item-title">Video 03</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                    <div class="carousel-item">
+                        <div>
+                            <div class="carousel-item-label">Presentation</div>
+                            <div class="carousel-item-title">Video 04</div>
+                            <div class="carousel-item-subtitle">Content coming soon</div>
+                        </div>
+                        <div class="carousel-item-status">Ready to update</div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="scrollCarousel('videosCarousel', -1)">&larr;</button>
+                <button class="carousel-btn" onclick="scrollCarousel('videosCarousel', 1)">&rarr;</button>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section>
+            <div class="section-header">
+                <h3>Team</h3>
+                <p>Meet the team</p>
+            </div>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-role">Project Lead</div>
+                    <div class="team-name">Member Name</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-role">Presenter</div>
+                    <div class="team-name">Member Name</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-role">Presenter</div>
+                    <div class="team-name">Member Name</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-role">Contributor</div>
+                    <div class="team-name">Member Name</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-role">Contributor</div>
+                    <div class="team-name">Member Name</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-role">Contributor</div>
+                    <div class="team-name">Member Name</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section>
+            <div class="section-header">
+                <h3>About</h3>
+                <p>Project overview</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>Built With</h4>
+                    <p>Wizterm and modern web technologies for showcase and documentation</p>
+                </div>
+                <div class="info-item">
+                    <h4>Purpose</h4>
+                    <p>Centralized hub for project reports, presentations, and team collaboration</p>
+                </div>
+                <div class="info-item">
+                    <h4>Deploy</h4>
+                    <p>Host on GitHub Pages and share with your team via a simple URL</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Coffee Lovers</p>
+        <p>Built with wizterm</p>
+    </footer>
+
+    <script>
+        function scrollCarousel(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
+            const gap = 20;
+            const scrollAmount = itemWidth + gap;
+            
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
