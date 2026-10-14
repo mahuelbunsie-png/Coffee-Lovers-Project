@@ -188,6 +188,8 @@
             border-top: 1px solid #333;
         }
 
+        .carousel-item:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
         /* Controls */
         .carousel-controls {
             display: flex;
@@ -370,8 +372,8 @@
     <section class="hero">
         <div class="hero-content">
             <h2>Coffee Lovers</h2>
-            <p>A project built with wizterm</p>
-            <p style="font-size: 14px; color: #666; margin-top: 24px;">Reports and presentations coming soon</p>
+            <p>CISC 322 · Conceptual Architecture of WezTerm</p>
+            <p style="font-size: 14px; color: #666; margin-top: 24px;">Group 20 · Assignment 1 report, presentation slides, and video</p>
         </div>
     </section>
 
@@ -384,38 +386,10 @@
             </div>
             <div class="carousel-container">
                 <div class="carousel" id="reportsCarousel">
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Report</div>
-                            <div class="carousel-item-title">Report 01</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Report</div>
-                            <div class="carousel-item-title">Report 02</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Report</div>
-                            <div class="carousel-item-title">Report 03</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Report</div>
-                            <div class="carousel-item-title">Report 04</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
+                    <a class="carousel-item" href="assets/WezTerm_A1_Report.pdf" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                        <div><div class="carousel-item-label">Assignment 01 · PDF</div><div class="carousel-item-title">Conceptual Architecture of WezTerm</div><div class="carousel-item-subtitle">Read our analysis of WezTerm's components, data flow, concurrency, and architectural decisions.</div></div>
+                        <div class="carousel-item-status">View report ↗</div>
+                    </a>
                 </div>
             </div>
             <div class="carousel-controls">
@@ -424,46 +398,38 @@
             </div>
         </section>
 
-        <!-- Presentations Section -->
+        <!-- Presentation Slides Section -->
         <section>
             <div class="section-header">
-                <h3>Presentations</h3>
-                <p>Video and visual presentations</p>
+                <h3>Presentation Slides</h3>
+                <p>Slides from our project presentations</p>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel" id="slidesCarousel">
+                    <a class="carousel-item" href="assets/WezTerm_A1_Slides.pptx" download style="text-decoration:none;color:inherit;">
+                        <div><div class="carousel-item-label">Assignment 01 · Slides</div><div class="carousel-item-title">Conceptual Architecture of WezTerm</div><div class="carousel-item-subtitle">Download the presentation slides, compatible with Google Slides.</div></div>
+                        <div class="carousel-item-status">Download slides ↓</div>
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="scrollCarousel('slidesCarousel', -1)">&larr;</button>
+                <button class="carousel-btn" onclick="scrollCarousel('slidesCarousel', 1)">&rarr;</button>
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section>
+            <div class="section-header">
+                <h3>Videos</h3>
+                <p>Watch our recorded project presentations</p>
             </div>
             <div class="carousel-container">
                 <div class="carousel" id="videosCarousel">
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Presentation</div>
-                            <div class="carousel-item-title">Video 01</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Presentation</div>
-                            <div class="carousel-item-title">Video 02</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Presentation</div>
-                            <div class="carousel-item-title">Video 03</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
-                    <div class="carousel-item">
-                        <div>
-                            <div class="carousel-item-label">Presentation</div>
-                            <div class="carousel-item-title">Video 04</div>
-                            <div class="carousel-item-subtitle">Content coming soon</div>
-                        </div>
-                        <div class="carousel-item-status">Ready to update</div>
-                    </div>
+                    <a class="carousel-item" href="https://youtu.be/g_ZeLQwuBT0" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+                        <div><div class="carousel-item-label">Assignment 01 · Video</div><div class="carousel-item-title">Architecture Presentation</div><div class="carousel-item-subtitle">Watch Group 20 explain the conceptual architecture of WezTerm.</div></div>
+                        <div class="carousel-item-status">Watch on YouTube ↗</div>
+                    </a>
                 </div>
             </div>
             <div class="carousel-controls">
@@ -515,7 +481,7 @@
             <div class="info-grid">
                 <div class="info-item">
                     <h4>Built With</h4>
-                    <p>Wizterm and modern web technologies for showcase and documentation</p>
+                    <p>WezTerm and modern web technologies for showcase and documentation</p>
                 </div>
                 <div class="info-item">
                     <h4>Purpose</h4>
@@ -523,7 +489,7 @@
                 </div>
                 <div class="info-item">
                     <h4>Deploy</h4>
-                    <p>Host on GitHub</p>
+                    <p>Published using GitHub Pages</p>
                 </div>
             </div>
         </section>
@@ -531,7 +497,7 @@
 
     <footer>
         <p>Coffee Lovers</p>
-        <p>Built with wizterm</p>
+        <p>Built with WezTerm</p>
     </footer>
 
     <script>
