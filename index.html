@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Lovers</title>
+    <title>Coffee Lovers | CISC 322</title>
     <style>
         * {
             margin: 0;
@@ -136,6 +137,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            color: inherit;
         }
 
         .carousel-item::before {
@@ -188,7 +191,10 @@
             border-top: 1px solid #333;
         }
 
-        .carousel-item:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+        .carousel-item:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 3px;
+        }
 
         /* Controls */
         .carousel-controls {
@@ -244,12 +250,6 @@
         }
 
         /* Team Section */
-        .team-container {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
         .team-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -364,6 +364,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Coffee Lovers</h1>
@@ -372,29 +373,83 @@
     <section class="hero">
         <div class="hero-content">
             <h2>Coffee Lovers</h2>
-            <p>CISC 322 · Conceptual Architecture of WezTerm</p>
-            <p style="font-size: 14px; color: #666; margin-top: 24px;">Group 20 · Assignment 1 report, presentation slides, and video</p>
+            <p>CISC 322 · Architecture of WezTerm</p>
+            <p style="font-size: 14px; color: #666; margin-top: 24px;">
+                Group 20 · Assignment 1 &amp; 2 reports, presentation slides, and videos
+            </p>
         </div>
     </section>
 
     <div class="container">
+
         <!-- Reports Section -->
         <section>
             <div class="section-header">
                 <h3>Reports</h3>
                 <p>Project analysis and findings</p>
             </div>
+
             <div class="carousel-container">
                 <div class="carousel" id="reportsCarousel">
-                    <a class="carousel-item" href="assets/WezTerm_A1_Report.pdf" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
-                        <div><div class="carousel-item-label">Assignment 01 · PDF</div><div class="carousel-item-title">Conceptual Architecture of WezTerm</div><div class="carousel-item-subtitle">Read our analysis of WezTerm's components, data flow, concurrency, and architectural decisions.</div></div>
-                        <div class="carousel-item-status">View report ↗</div>
+
+                    <!-- Assignment 1 Report -->
+                    <a class="carousel-item"
+                       href="assets/WezTerm_A1_Report.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <div>
+                            <div class="carousel-item-label">
+                                Assignment 01 · PDF
+                            </div>
+                            <div class="carousel-item-title">
+                                Conceptual Architecture of WezTerm
+                            </div>
+                            <div class="carousel-item-subtitle">
+                                Read our analysis of WezTerm's components,
+                                data flow, concurrency, and architectural decisions.
+                            </div>
+                        </div>
+                        <div class="carousel-item-status">
+                            View report ↗
+                        </div>
                     </a>
+
+                    <!-- Assignment 2 Report -->
+                    <a class="carousel-item"
+                       href="assets/A2%20Concrete%20Architecture%20WezTerm%20Report.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <div>
+                            <div class="carousel-item-label">
+                                Assignment 02 · PDF
+                            </div>
+                            <div class="carousel-item-title">
+                                Concrete Architecture of WezTerm
+                            </div>
+                            <div class="carousel-item-subtitle">
+                                Read our architecture recovery, reflexion analysis,
+                                Multiplexer deep dive, and sequence diagrams.
+                            </div>
+                        </div>
+                        <div class="carousel-item-status">
+                            View report ↗
+                        </div>
+                    </a>
+
                 </div>
             </div>
+
             <div class="carousel-controls">
-                <button class="carousel-btn" onclick="scrollCarousel('reportsCarousel', -1)">&larr;</button>
-                <button class="carousel-btn" onclick="scrollCarousel('reportsCarousel', 1)">&rarr;</button>
+                <button class="carousel-btn"
+                    aria-label="Previous report"
+                    onclick="scrollCarousel('reportsCarousel', -1)">
+                    &larr;
+                </button>
+                <button class="carousel-btn"
+                    aria-label="Next report"
+                    onclick="scrollCarousel('reportsCarousel', 1)">
+                    &rarr;
+                </button>
             </div>
         </section>
 
@@ -404,17 +459,68 @@
                 <h3>Presentation Slides</h3>
                 <p>Slides from our project presentations</p>
             </div>
+
             <div class="carousel-container">
                 <div class="carousel" id="slidesCarousel">
-                    <a class="carousel-item" href="assets/WezTerm_A1_Slides.pptx" download style="text-decoration:none;color:inherit;">
-                        <div><div class="carousel-item-label">Assignment 01 · Slides</div><div class="carousel-item-title">Conceptual Architecture of WezTerm</div><div class="carousel-item-subtitle">Download the presentation slides, compatible with Google Slides.</div></div>
-                        <div class="carousel-item-status">Download slides ↓</div>
+
+                    <!-- Assignment 1 Slides -->
+                    <a class="carousel-item"
+                       href="assets/WezTerm_A1_Slides.pptx"
+                       download>
+                        <div>
+                            <div class="carousel-item-label">
+                                Assignment 01 · Slides
+                            </div>
+                            <div class="carousel-item-title">
+                                Conceptual Architecture of WezTerm
+                            </div>
+                            <div class="carousel-item-subtitle">
+                                Download the presentation slides,
+                                compatible with Google Slides.
+                            </div>
+                        </div>
+                        <div class="carousel-item-status">
+                            Download slides ↓
+                        </div>
                     </a>
+
+                    <!-- Assignment 2 Slides -->
+                    <a class="carousel-item"
+                       href="assets/Concrete%20Architecture%20of%20WezTerm%20Presentation.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <div>
+                            <div class="carousel-item-label">
+                                Assignment 02 · Slides
+                            </div>
+                            <div class="carousel-item-title">
+                                Concrete Architecture of WezTerm
+                            </div>
+                            <div class="carousel-item-subtitle">
+                                View our Assignment 2 presentation covering
+                                the recovered architecture, implementation
+                                findings, and architectural analysis.
+                            </div>
+                        </div>
+                        <div class="carousel-item-status">
+                            View slides ↗
+                        </div>
+                    </a>
+
                 </div>
             </div>
+
             <div class="carousel-controls">
-                <button class="carousel-btn" onclick="scrollCarousel('slidesCarousel', -1)">&larr;</button>
-                <button class="carousel-btn" onclick="scrollCarousel('slidesCarousel', 1)">&rarr;</button>
+                <button class="carousel-btn"
+                    aria-label="Previous presentation"
+                    onclick="scrollCarousel('slidesCarousel', -1)">
+                    &larr;
+                </button>
+                <button class="carousel-btn"
+                    aria-label="Next presentation"
+                    onclick="scrollCarousel('slidesCarousel', 1)">
+                    &rarr;
+                </button>
             </div>
         </section>
 
@@ -424,17 +530,68 @@
                 <h3>Videos</h3>
                 <p>Watch our recorded project presentations</p>
             </div>
+
             <div class="carousel-container">
                 <div class="carousel" id="videosCarousel">
-                    <a class="carousel-item" href="https://youtu.be/g_ZeLQwuBT0" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
-                        <div><div class="carousel-item-label">Assignment 01 · Video</div><div class="carousel-item-title">Architecture Presentation</div><div class="carousel-item-subtitle">Watch Group 20 explain the conceptual architecture of WezTerm.</div></div>
-                        <div class="carousel-item-status">Watch on YouTube ↗</div>
+
+                    <!-- Assignment 1 Video -->
+                    <a class="carousel-item"
+                       href="https://youtu.be/g_ZeLQwuBT0"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <div>
+                            <div class="carousel-item-label">
+                                Assignment 01 · Video
+                            </div>
+                            <div class="carousel-item-title">
+                                Conceptual Architecture Presentation
+                            </div>
+                            <div class="carousel-item-subtitle">
+                                Watch Group 20 explain the conceptual
+                                architecture of WezTerm.
+                            </div>
+                        </div>
+                        <div class="carousel-item-status">
+                            Watch on YouTube ↗
+                        </div>
                     </a>
+
+                    <!-- Assignment 2 Video -->
+                    <a class="carousel-item"
+                       href="https://www.youtube.com/watch?v=8CNQ3QeohWY"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <div>
+                            <div class="carousel-item-label">
+                                Assignment 02 · Video
+                            </div>
+                            <div class="carousel-item-title">
+                                Concrete Architecture Presentation
+                            </div>
+                            <div class="carousel-item-subtitle">
+                                Watch Group 20 present its concrete architecture
+                                recovery, Multiplexer analysis, and findings.
+                            </div>
+                        </div>
+                        <div class="carousel-item-status">
+                            Watch on YouTube ↗
+                        </div>
+                    </a>
+
                 </div>
             </div>
+
             <div class="carousel-controls">
-                <button class="carousel-btn" onclick="scrollCarousel('videosCarousel', -1)">&larr;</button>
-                <button class="carousel-btn" onclick="scrollCarousel('videosCarousel', 1)">&rarr;</button>
+                <button class="carousel-btn"
+                    aria-label="Previous video"
+                    onclick="scrollCarousel('videosCarousel', -1)">
+                    &larr;
+                </button>
+                <button class="carousel-btn"
+                    aria-label="Next video"
+                    onclick="scrollCarousel('videosCarousel', 1)">
+                    &rarr;
+                </button>
             </div>
         </section>
 
@@ -444,31 +601,39 @@
                 <h3>Team</h3>
                 <p>Meet the team</p>
             </div>
+
             <div class="team-container">
+
                 <div class="team-member">
                     <div class="team-role">Project Lead</div>
                     <div class="team-name">Mahuel Bunsie</div>
                 </div>
+
                 <div class="team-member">
                     <div class="team-role">Presenter</div>
                     <div class="team-name">Lovepreet Singh</div>
                 </div>
+
                 <div class="team-member">
-                    <div class="team-role">Presenter</div>
+                    <div class="team-role">Contributor</div>
                     <div class="team-name">Daniel Asayesh</div>
                 </div>
+
                 <div class="team-member">
                     <div class="team-role">Contributor</div>
                     <div class="team-name">Navtej Singh Bawa</div>
                 </div>
+
                 <div class="team-member">
-                    <div class="team-role">Contributor</div>
+                    <div class="team-role">Presenter</div>
                     <div class="team-name">Aariz Anish Bhamani</div>
                 </div>
+
                 <div class="team-member">
                     <div class="team-role">Contributor</div>
                     <div class="team-name">Jashan Uppal</div>
                 </div>
+
             </div>
         </section>
 
@@ -478,21 +643,33 @@
                 <h3>About</h3>
                 <p>Project overview</p>
             </div>
+
             <div class="info-grid">
+
                 <div class="info-item">
                     <h4>Built With</h4>
-                    <p>WezTerm and modern web technologies for showcase and documentation</p>
+                    <p>
+                        WezTerm and modern web technologies
+                        for showcase and documentation
+                    </p>
                 </div>
+
                 <div class="info-item">
                     <h4>Purpose</h4>
-                    <p>Centralized hub for project reports, presentations, and team collaboration</p>
+                    <p>
+                        Centralized hub for project reports,
+                        presentations, and team collaboration
+                    </p>
                 </div>
+
                 <div class="info-item">
                     <h4>Deploy</h4>
                     <p>Published using GitHub Pages</p>
                 </div>
+
             </div>
         </section>
+
     </div>
 
     <footer>
@@ -503,15 +680,24 @@
     <script>
         function scrollCarousel(carouselId, direction) {
             const carousel = document.getElementById(carouselId);
-            const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
+
+            if (!carousel) return;
+
+            const item = carousel.querySelector('.carousel-item');
+
+            if (!item) return;
+
+            const itemWidth = item.offsetWidth;
             const gap = 20;
             const scrollAmount = itemWidth + gap;
-            
+
             carousel.scrollBy({
                 left: direction * scrollAmount,
                 behavior: 'smooth'
             });
         }
     </script>
+
 </body>
 </html>
+  
